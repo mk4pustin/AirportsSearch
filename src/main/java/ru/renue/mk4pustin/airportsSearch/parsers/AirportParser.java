@@ -1,5 +1,6 @@
 package ru.renue.mk4pustin.airportsSearch.parsers;
 
+import ru.renue.mk4pustin.airportsSearch.exceptions.FilterParserException;
 import ru.renue.mk4pustin.airportsSearch.filter.Filter;
 import ru.renue.mk4pustin.airportsSearch.filter.FilterApplier;
 import ru.renue.mk4pustin.airportsSearch.providers.ResourceProvider;
@@ -29,7 +30,7 @@ public class AirportParser {
         return airports;
     }
 
-    public Map<String, String> parseByLineNumbersAndFilter(List<Integer> lineNumbers, List<Filter> filters) {
+    public Map<String, String> parseByLineNumbersAndFilter(List<Integer> lineNumbers, List<Filter> filters) throws FilterParserException {
         final var airports = new HashMap<String, String>();
 
         try (var reader = new BufferedReader(new InputStreamReader(provider.getResource()))) {

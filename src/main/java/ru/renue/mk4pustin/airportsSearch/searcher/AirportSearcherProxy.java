@@ -1,5 +1,7 @@
 package ru.renue.mk4pustin.airportsSearch.searcher;
 
+import ru.renue.mk4pustin.airportsSearch.exceptions.FilterParserException;
+
 import java.util.Map;
 
 public class AirportSearcherProxy implements Searcher {
@@ -13,7 +15,7 @@ public class AirportSearcherProxy implements Searcher {
     }
 
     @Override
-    public Map<String, String> search() {
+    public Map<String, String> search() throws FilterParserException {
         var startTime = System.nanoTime();
         var result = airportSearcher.search();
         long endTime = System.nanoTime();

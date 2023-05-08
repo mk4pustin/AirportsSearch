@@ -1,5 +1,6 @@
 package ru.renue.mk4pustin.airportsSearch.searcher;
 
+import ru.renue.mk4pustin.airportsSearch.exceptions.FilterParserException;
 import ru.renue.mk4pustin.airportsSearch.filter.Filter;
 import ru.renue.mk4pustin.airportsSearch.parsers.AirportParser;
 
@@ -21,7 +22,7 @@ public class AirportSearcher implements Searcher {
         this.parser = parser;
     }
 
-    public Map<String, String> search() {
+    public Map<String, String> search() throws FilterParserException {
         nameBeginning = "\"" + nameBeginning;
         final var nameBeginningAirports = airports.subMap(nameBeginning, nameBeginning + Character.MAX_VALUE);
 
