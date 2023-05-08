@@ -6,5 +6,6 @@
 ![Снимок экрана (89)](https://user-images.githubusercontent.com/122934926/236716328-d6ade514-2386-4d8b-8cd4-03a0f76330fa.png)
 
 # Запуск приложения
-![Снимок экрана (90)](https://user-images.githubusercontent.com/122934926/236716559-9a20a1cf-7a59-422d-879d-f6e6edb37ffc.png)
+![Снимок экрана (90)](https://user-images.githubusercontent.com/122934926/236716559-9a20a1cf-7a59-422d-879d-f6e6edb37ffc.png)  
+
 Запускать airports-search.jar
