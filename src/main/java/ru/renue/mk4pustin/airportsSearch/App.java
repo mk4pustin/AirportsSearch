@@ -52,6 +52,7 @@ public class App {
                 render.render(Messages.RESULTING_MESSAGE + res.size());
                 render.render(Messages.RESULTING_TIME + proxy.getTime());
             } catch (FilterParserException e) {
+                render.render(e.getMessage());
                 render.render(Messages.REPEAT_MESSAGE);
             }
         }

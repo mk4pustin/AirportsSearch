@@ -15,7 +15,7 @@
           <appendAssemblyId>false</appendAssemblyId>
           <archive>
             <manifest>
-              <mainClass>ru.renue.mk4pustin.airportsApp.App</mainClass>
+              <mainClass>ru.renue.mk4pustin.airportsSearch.App</mainClass>
             </manifest>
           </archive>
           <descriptorRefs>
