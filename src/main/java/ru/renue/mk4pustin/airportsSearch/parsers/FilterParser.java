@@ -83,7 +83,9 @@ public final class FilterParser {
                     throw new FilterParserException(Messages.COLUMN_NUMBER_ERROR_MESSAGE + MAX_COLUMN_NUMBER);
 
                 var operation = Operation.fromString(matcher.group(2));
-                var value = matcher.group(3).replaceAll("’", "");
+                var value = matcher.group(3);
+                if (checkNeedSubstring(value))
+                    value = value.substring(1, value.length() - 1);
 
                 if (operation == null || value.isEmpty()) {
                     throw new FilterParserException(Messages.FILTER_FORMAT_ERROR_MESSAGE);
@@ -98,4 +100,9 @@ public final class FilterParser {
         }
     }
 
+    private static boolean checkNeedSubstring(String str) {
+        return str.startsWith("'") && str.endsWith("'") ||
+                str.startsWith("’") && str.endsWith("’") ||
+                str.startsWith("\"") && str.endsWith("\"");
+    }
 }
