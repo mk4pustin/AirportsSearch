@@ -8,4 +8,10 @@
 # Запуск приложения
 ![Снимок экрана (90)](https://user-images.githubusercontent.com/122934926/236716559-9a20a1cf-7a59-422d-879d-f6e6edb37ffc.png)  
 
-Запускать airports-search.jar
+Запускать airports-search.jar  
+
+# Ошибка при разделении строки по запятым
+Из-за строк, как:
+![Снимок экрана (94)](https://github.com/mk4pustin/AirportsSearch/assets/122934926/23b5fd54-e70f-4d92-89de-5dfeab701573)
+
+Из-за решения просело время поиска по фильтрам.
