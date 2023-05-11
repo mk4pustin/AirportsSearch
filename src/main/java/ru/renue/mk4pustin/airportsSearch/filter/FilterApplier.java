@@ -7,7 +7,7 @@ import java.util.List;
 
 public final class FilterApplier {
 
-    public static boolean apply(String[] airport, List<Filter> filters) throws FilterParserException {
+    public static boolean apply(List<String> airport, List<Filter> filters) throws FilterParserException {
         if (filters == null || filters.isEmpty()) return false;
 
         filters_loop:
@@ -18,7 +18,7 @@ public final class FilterApplier {
                 for (var ex : filter.getExpressions()) {
                     if (ex == null) break;
 
-                    var val = airport[ex.getColumnNumber() - 1];
+                    var val = airport.get(ex.getColumnNumber() - 1);
                     if (val.equals("\\N")) {
                         if (ex.getOperation() == Operation.EQUAL) continue filters_loop;
                         else continue;
@@ -26,11 +26,11 @@ public final class FilterApplier {
 
                     try {
                         if (val.startsWith("\"")) {
-                            if (applyExpression(airport[ex.getColumnNumber() - 1].replaceAll("\"", ""), ex.getValue(), ex.getOperation())) {
+                            if (applyExpression(airport.get(ex.getColumnNumber() - 1).replaceAll("\"", ""), ex.getValue(), ex.getOperation())) {
                                 continue filters_loop;
                             }
                         } else {
-                            if (applyExpression(Double.parseDouble(airport[ex.getColumnNumber() - 1]),
+                            if (applyExpression(Double.parseDouble(airport.get(ex.getColumnNumber() - 1)),
                                     Double.parseDouble(ex.getValue()), ex.getOperation())) {
                                 continue filters_loop;
                             }

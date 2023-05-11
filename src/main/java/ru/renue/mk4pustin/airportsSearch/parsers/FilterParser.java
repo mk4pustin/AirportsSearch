@@ -64,7 +64,6 @@ public final class FilterParser {
                         innerFilters.put(replaceStr, line.substring(startFilterIndex + 1, index));
                         line = line.substring(0, startFilterIndex) + replaceStr + line.substring(index + 1);
                         index = startFilterIndex + replaceStr.length();
-
                     }
                 }
             }

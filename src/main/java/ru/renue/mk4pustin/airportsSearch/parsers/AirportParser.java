@@ -20,8 +20,8 @@ public class AirportParser {
             String line;
             int lineNumber = 1;
             while ((line = reader.readLine()) != null) {
-                var data = line.split(",");
-                airports.put(data[1], lineNumber++);
+                var data = splitAirportLine(line);
+                airports.put(data.get(1), lineNumber++);
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -43,9 +43,9 @@ public class AirportParser {
                 }
                 var data = reader.readLine();
                 lineNumber++;
-                var cols = data.split(",");
+                var cols = splitAirportLine(data);
                 if (filters == null || FilterApplier.apply(cols, filters)) {
-                    airports.put(cols[1], data);
+                    airports.put(cols.get(1), data);
                 }
             }
         } catch (IOException e) {
@@ -53,6 +53,19 @@ public class AirportParser {
         }
 
         return airports;
+    }
+
+    private List<String> splitAirportLine(String line) {
+        final var info  = new ArrayList<String>();
+
+        try (var scanner = new Scanner(line)) {
+            scanner.useDelimiter(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
+            while (scanner.hasNext()) {
+                info.add(scanner.next());
+            }
+        }
+
+        return info;
     }
 
     public void setProvider(ResourceProvider provider) {
