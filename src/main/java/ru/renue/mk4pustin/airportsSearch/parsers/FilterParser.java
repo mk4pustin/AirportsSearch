@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 public final class FilterParser {
-    public static final String EXPRESSION_PATTERN_STRING = "column\\[(\\d+)]\\s*(=|<>|>|<)\\s*(\\S+)";
+    public static final String EXPRESSION_PATTERN_STRING = "column\\[(\\d+)]\\s*(=|<>|>|<)\\s*(.*)";
     public static final String EXP_REGEX = "^exp\\d+$";
     public static final int MAX_COLUMN_NUMBER = 14;
 
